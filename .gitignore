@@ -1,0 +1,34 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+.env.local
+
+# Generated files
+qrcode.png
+qrcode_public.png
+qrcode_live.png
+Screenshot_*.jpg
+*.pdf
+心理检测.txt
+
+# Android app
+android-app/

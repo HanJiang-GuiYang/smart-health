@@ -1,0 +1,1349 @@
+﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智养未来 Smart Health - 校园智慧健康平台</title>
+    <meta name="description" content="融合 AI、健康管理、中医文化、劳动教育和数据可视化的校园智慧健康平台">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-static"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span class="brand-text">智养未来</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">首页</a></li>
+                <li><a href="#ai-consult" class="nav-link">AI 问诊</a></li>
+                <li><a href="#health-check" class="nav-link">健康检测</a></li>
+                <li><a href="#tcm-analysis" class="nav-link">中医体质</a></li>
+                <li><a href="#labor-health" class="nav-link">劳动健康</a></li>
+                <li><a href="#nutrition" class="nav-link">营养助手</a></li>
+                <li><a href="#tcm-culture" class="nav-link">中医文化</a></li>
+                <li><a href="#acupoint" class="nav-link">穴位学习</a></li>
+                <li><a href="#tongue-diagnosis" class="nav-link">AI 舌诊</a></li>
+                <li><a href="#health-trend" class="nav-link">健康趋势</a></li>
+                <li><a href="#growth" class="nav-link">成长系统</a></li>
+                <li><a href="#report" class="nav-link">健康报告</a></li>
+                <li><a href="#about" class="nav-link">关于项目</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down">
+                <i class="fas fa-award"></i>
+                <span>全国中小学劳动教育与智慧健康创新赛事</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">智养未来</span>
+                <span class="title-en">SMART HEALTH</span>
+            </h1>
+            <p class="hero-subtitle">
+                融合 AI 智能 · 传承中医文化 · 赋能劳动教育 · 守护校园健康
+            </p>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-item">
+                    <div class="stat-number" id="statStudents">0</div>
+                    <div class="stat-label">服务学生</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statSchools">0</div>
+                    <div class="stat-label">覆盖学校</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statRecords">0</div>
+                    <div class="stat-label">健康记录</div>
+                </div>
+            </div>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="500">
+                <a href="#health-check" class="btn btn-primary">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>开始健康检测</span>
+                </a>
+                <a href="#about" class="btn btn-outline">
+                    <i class="fas fa-info-circle"></i>
+                    <span>了解项目</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>向下滚动</span>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Consultation Section -->
+    <section class="section section-dark" id="ai-consult">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AI CONSULTATION</span>
+                <h2 class="section-title">AI 健康问诊</h2>
+                <p class="section-desc">基于 DeepSeek 大模型，提供专业健康咨询与养生建议</p>
+            </div>
+
+            <div class="consult-container" data-aos="fade-up">
+                <!-- Weather Widget -->
+                <div class="weather-widget" data-aos="fade-right">
+                    <div class="weather-header">
+                        <i class="fas fa-cloud-sun"></i>
+                        <span>今日天气</span>
+                    </div>
+                    <div class="weather-content">
+                        <div class="weather-temp" id="weatherTemp">--°C</div>
+                        <div class="weather-desc" id="weatherDesc">加载中...</div>
+                        <div class="weather-tip" id="weatherTip">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>正在获取养生建议...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Interface -->
+                <div class="chat-container" data-aos="fade-left">
+                    <div class="chat-header">
+                        <div class="chat-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="chat-info">
+                            <h3>AI 健康助手</h3>
+                            <span class="chat-status">在线</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot">
+                            <div class="message-content">
+                                您好！我是智养未来的 AI 健康助手。我可以帮您：
+                                <ul>
+                                    <li>分析身体不适症状</li>
+                                    <li>提供中医养生建议</li>
+                                    <li>根据天气给出健康提示</li>
+                                    <li>解答健康管理问题</li>
+                                </ul>
+                                请描述您的症状或问题，我会为您提供专业建议。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <textarea id="chatInput" placeholder="请描述您的症状或健康问题..."></textarea>
+                        <button class="btn btn-gold" id="sendChatBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>发送</span>
+                        </button>
+                    </div>
+
+                    <div class="chat-suggestions">
+                        <span class="suggestion-label">常见问题：</span>
+                        <button class="suggestion-btn" data-question="最近总是失眠，怎么办？">失眠问题</button>
+                        <button class="suggestion-btn" data-question="经常感到疲劳，如何调理？">疲劳调理</button>
+                        <button class="suggestion-btn" data-question="感冒初期有什么中医方法？">感冒初期</button>
+                        <button class="suggestion-btn" data-question="消化不良怎么改善？">消化不良</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Check Section -->
+    <section class="section" id="health-check">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">DAILY CHECK</span>
+                <h2 class="section-title">今日健康检测</h2>
+                <p class="section-desc">记录每日健康数据，AI 智能分析您的健康状态</p>
+            </div>
+            
+            <!-- ESP32 实时心率监测 -->
+            <div class="esp32-monitor" data-aos="fade-up" data-aos-delay="100">
+                <div class="esp32-header">
+                    <div class="esp32-title">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>ESP32-C3 实时心率监测</span>
+                    </div>
+                    <div class="esp32-status" id="esp32Status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">等待连接</span>
+                    </div>
+                    <div class="esp32-config">
+                        <label>设备地址：</label>
+                        <input type="text" id="esp32Address" value="http://10.141.167.38" placeholder="ESP32 IP 或 .local 地址">
+                        <button class="btn btn-gold btn-sm" id="esp32ConnectBtn">
+                            <i class="fas fa-plug"></i> 连接
+                        </button>
+                    </div>
+                </div>
+
+                <div class="esp32-metrics">
+                    <div class="esp32-metric-card">
+                        <div class="metric-label">稳定心率</div>
+                        <div class="metric-value" id="esp32StableHR">--</div>
+                        <div class="metric-unit">BPM</div>
+                        <div class="metric-trend" id="esp32HRTrend">等待数据</div>
+                    </div>
+                    <div class="esp32-metric-card">
+                        <div class="metric-label">算法原始心率</div>
+                        <div class="metric-value" id="esp32RawHR">--</div>
+                        <div class="metric-unit">BPM</div>
+                        <div class="metric-desc">瞬时跳变观察</div>
+                    </div>
+                    <div class="esp32-metric-card">
+                        <div class="metric-label">血氧饱和度</div>
+                        <div class="metric-value" id="esp32SpO2">--</div>
+                        <div class="metric-unit">%</div>
+                        <div class="metric-desc" id="esp32SpO2Age">尚未采样</div>
+                    </div>
+                </div>
+
+                <div class="esp32-charts">
+                    <div class="esp32-chart-card">
+                        <h4><i class="fas fa-chart-line"></i> 心率趋势</h4>
+                        <div class="chart-canvas-wrap">
+                            <canvas id="esp32HRChart"></canvas>
+                        </div>
+                        <div class="chart-stats">
+                            <span><i class="dot" style="background:#38d9e6"></i>稳定</span>
+                            <span><i class="dot" style="background:#ff5b67"></i>原始</span>
+                            <span id="esp32HRStats">--</span>
+                        </div>
+                    </div>
+                    <div class="esp32-chart-card">
+                        <h4><i class="fas fa-chart-area"></i> 血氧趋势</h4>
+                        <div class="chart-canvas-wrap">
+                            <canvas id="esp32SpO2Chart"></canvas>
+                        </div>
+                        <div class="chart-stats">
+                            <span><i class="dot" style="background:#4ade80"></i>SpO₂</span>
+                            <span id="esp32SpO2Stats">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 医学健康评估 -->
+                <div class="esp32-health-assessment" id="esp32HealthAssessment">
+                    <h4><i class="fas fa-stethoscope"></i> 医学健康评估</h4>
+                    <div class="assessment-grid">
+                        <div class="assessment-item" id="hrAssessment">
+                            <div class="assessment-icon"><i class="fas fa-heartbeat"></i></div>
+                            <div class="assessment-info">
+                                <div class="assessment-label">心率评估</div>
+                                <div class="assessment-level" id="hrLevel">等待数据</div>
+                                <div class="assessment-detail" id="hrDetail">--</div>
+                            </div>
+                            <div class="assessment-badge" id="hrBadge">--</div>
+                        </div>
+                        <div class="assessment-item" id="spo2Assessment">
+                            <div class="assessment-icon"><i class="fas fa-lungs"></i></div>
+                            <div class="assessment-info">
+                                <div class="assessment-label">血氧评估</div>
+                                <div class="assessment-level" id="spo2Level">等待数据</div>
+                                <div class="assessment-detail" id="spo2Detail">--</div>
+                            </div>
+                            <div class="assessment-badge" id="spo2Badge">--</div>
+                        </div>
+                    </div>
+                    <div class="assessment-summary" id="assessmentSummary">
+                        <div class="summary-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="summary-text" id="summaryText">连接设备后将自动进行医学健康评估</div>
+                    </div>
+                    <div class="assessment-reference">
+                        <p><i class="fas fa-info-circle"></i> 参考标准：WHO 成人静息心率 60-100 BPM | 血氧饱和度 ≥95% 为正常（中华医学会呼吸病学分会）</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="health-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Sleep Card -->
+                <div class="health-card" data-aos="zoom-in">
+                    <div class="card-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3 class="card-title">睡眠质量</h3>
+                    <div class="card-input">
+                        <input type="range" id="sleepHours" min="0" max="12" step="0.5" value="8">
+                        <div class="input-value">
+                            <span id="sleepValue">8</span>
+                            <span class="unit">小时</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-indicator good"></span>
+                        <span class="status-text">睡眠充足</span>
+                    </div>
+                </div>
+
+                <!-- Water Card -->
+                <div class="health-card" data-aos="zoom-in">
+                    <div class="card-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="card-title">饮水量</h3>
+                    <div class="card-input">
+                        <input type="range" id="waterCups" min="0" max="15" step="1" value="8">
+                        <div class="input-value">
+                            <span id="waterValue">8</span>
+                            <span class="unit">杯</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-indicator good"></span>
+                        <span class="status-text">饮水达标</span>
+                    </div>
+                </div>
+
+                <!-- Exercise Card -->
+                <div class="health-card" data-aos="zoom-in">
+                    <div class="card-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="card-title">运动时长</h3>
+                    <div class="card-input">
+                        <input type="range" id="exerciseMinutes" min="0" max="180" step="5" value="60">
+                        <div class="input-value">
+                            <span id="exerciseValue">60</span>
+                            <span class="unit">分钟</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-indicator good"></span>
+                        <span class="status-text">运动达标</span>
+                    </div>
+                </div>
+
+                <!-- Diet Card -->
+                <div class="health-card" data-aos="zoom-in">
+                    <div class="card-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="card-title">饮食评价</h3>
+                    <div class="card-input">
+                        <select id="dietScore">
+                            <option value="5">非常均衡</option>
+                            <option value="4">比较均衡</option>
+                            <option value="3" selected>一般</option>
+                            <option value="2">不太均衡</option>
+                            <option value="1">较差</option>
+                        </select>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-indicator medium"></span>
+                        <span class="status-text">饮食一般</span>
+                    </div>
+                </div>
+
+                <!-- Mood Card -->
+                <div class="health-card" data-aos="zoom-in">
+                    <div class="card-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="card-title">心情状态</h3>
+                    <div class="card-input">
+                        <div class="mood-selector">
+                            <button class="mood-btn" data-mood="1"><i class="fas fa-sad-tear"></i></button>
+                            <button class="mood-btn" data-mood="2"><i class="fas fa-frown"></i></button>
+                            <button class="mood-btn active" data-mood="3"><i class="fas fa-meh"></i></button>
+                            <button class="mood-btn" data-mood="4"><i class="fas fa-smile"></i></button>
+                            <button class="mood-btn" data-mood="5"><i class="fas fa-grin-stars"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-indicator medium"></span>
+                        <span class="status-text">心情平和</span>
+                    </div>
+                </div>
+
+                <!-- Overall Score Card -->
+                <div class="health-card score-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="score-circle">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="score-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="score-progress" cx="50" cy="50" r="45" id="scoreProgress"></circle>
+                        </svg>
+                        <div class="score-value">
+                            <span id="healthScore">85</span>
+                            <span class="score-unit">分</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">今日健康评分</h3>
+                    <button class="btn btn-gold" id="saveHealthBtn">
+                        <i class="fas fa-save"></i>
+                        <span>保存记录</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TCM Analysis Section -->
+    <section class="section section-dark" id="tcm-analysis">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AI TCM ANALYSIS</span>
+                <h2 class="section-title">AI 中医体质分析</h2>
+                <p class="section-desc">基于中医九种体质理论，AI 智能分析您的体质类型</p>
+            </div>
+
+            <div class="tcm-container" data-aos="fade-up">
+                <!-- Questionnaire -->
+                <div class="tcm-questionnaire" id="tcmQuestionnaire">
+                    <div class="questionnaire-header">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="tcmProgress" style="width: 5%"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="currentQuestion">1</span> / <span id="totalQuestions">20</span>
+                        </div>
+                    </div>
+                    
+                    <div class="question-card" id="questionCard">
+                        <h3 class="question-title" id="questionTitle">您是否容易感到疲劳？</h3>
+                        <div class="question-options">
+                            <button class="option-btn" data-value="1">
+                                <span class="option-label">没有</span>
+                                <span class="option-score">1分</span>
+                            </button>
+                            <button class="option-btn" data-value="2">
+                                <span class="option-label">很少</span>
+                                <span class="option-score">2分</span>
+                            </button>
+                            <button class="option-btn" data-value="3">
+                                <span class="option-label">有时</span>
+                                <span class="option-score">3分</span>
+                            </button>
+                            <button class="option-btn" data-value="4">
+                                <span class="option-label">经常</span>
+                                <span class="option-score">4分</span>
+                            </button>
+                            <button class="option-btn" data-value="5">
+                                <span class="option-label">总是</span>
+                                <span class="option-score">5分</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="questionnaire-nav">
+                        <button class="btn btn-outline" id="prevQuestion" disabled>
+                            <i class="fas fa-arrow-left"></i>
+                            <span>上一题</span>
+                        </button>
+                        <button class="btn btn-primary" id="nextQuestion">
+                            <span>下一题</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div class="tcm-result" id="tcmResult" style="display: none;">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            <i class="fas fa-yin-yang"></i>
+                        </div>
+                        <h3 class="result-type" id="resultType">平和质</h3>
+                        <p class="result-desc" id="resultDesc">阴阳气血调和，体态适中，面色润泽</p>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <h4><i class="fas fa-check-circle"></i> 体质特征</h4>
+                            <ul id="resultTraits">
+                                <li>体形匀称健壮</li>
+                                <li>面色肤色润泽</li>
+                                <li>精力充沛</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <h4><i class="fas fa-heart"></i> 养生建议</h4>
+                            <ul id="resultAdvice">
+                                <li>饮食有节，不要过饱</li>
+                                <li>作息规律，不熬夜</li>
+                                <li>适度运动，保持活力</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <h4><i class="fas fa-leaf"></i> 推荐食材</h4>
+                            <div class="food-tags" id="resultFoods">
+                                <span class="food-tag">山药</span>
+                                <span class="food-tag">薏米</span>
+                                <span class="food-tag">红枣</span>
+                                <span class="food-tag">枸杞</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-gold" id="retakeTest">
+                        <i class="fas fa-redo"></i>
+                        <span>重新测试</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Labor Health Section -->
+    <section class="section" id="labor-health">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">SMART LABOR</span>
+                <h2 class="section-title">智慧劳动健康</h2>
+                <p class="section-desc">记录劳动付出，收获健康与成长</p>
+            </div>
+
+            <div class="labor-grid" data-aos="fade-up" data-aos-delay="200">
+                <!-- Labor Record Card -->
+                <div class="labor-card" data-aos="flip-left">
+                    <div class="card-header">
+                        <h3><i class="fas fa-clipboard-list"></i> 劳动记录</h3>
+                        <button class="btn-icon" id="addLaborBtn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="labor-form" id="laborForm" style="display: none;">
+                        <select id="laborType">
+                            <option value="">选择劳动类型</option>
+                            <option value="cleaning">清洁卫生</option>
+                            <option value="gardening">园艺种植</option>
+                            <option value="cooking">烹饪制作</option>
+                            <option value="exercise">体育锻炼</option>
+                            <option value="craft">手工制作</option>
+                            <option value="other">其他劳动</option>
+                        </select>
+                        <input type="number" id="laborDuration" placeholder="劳动时长（分钟）" min="1">
+                        <button class="btn btn-primary btn-block" id="saveLaborBtn">
+                            <i class="fas fa-save"></i> 保存记录
+                        </button>
+                    </div>
+                    <div class="labor-list" id="laborList">
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <p>暂无劳动记录</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Labor Stats Card -->
+                <div class="labor-card" data-aos="flip-left">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> 劳动统计</h3>
+                    </div>
+                    <div class="labor-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">本周劳动</span>
+                            <span class="stat-value" id="weekLabor">0</span>
+                            <span class="stat-unit">次</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">累计时长</span>
+                            <span class="stat-value" id="totalDuration">0</span>
+                            <span class="stat-unit">分钟</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">消耗卡路里</span>
+                            <span class="stat-value" id="totalCalories">0</span>
+                            <span class="stat-unit">千卡</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Labor Points Card -->
+                <div class="labor-card" data-aos="flip-left">
+                    <div class="card-header">
+                        <h3><i class="fas fa-trophy"></i> 劳动积分</h3>
+                    </div>
+                    <div class="points-display">
+                        <div class="points-circle">
+                            <span id="laborPoints">0</span>
+                        </div>
+                        <div class="points-level">
+                            <span class="level-label">当前等级</span>
+                            <span class="level-name" id="laborLevel">劳动新手</span>
+                        </div>
+                    </div>
+                    <div class="points-bar">
+                        <div class="bar-fill" id="pointsBar" style="width: 0%"></div>
+                    </div>
+                    <p class="points-hint" id="pointsHint">还需 100 积分升级</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section class="section section-dark" id="nutrition">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AI NUTRITION</span>
+                <h2 class="section-title">AI 营养助手</h2>
+                <p class="section-desc">智能分析饮食，提供个性化营养建议</p>
+            </div>
+
+            <div class="nutrition-container" data-aos="fade-up">
+                <div class="nutrition-input" data-aos="fade-right">
+                    <h3><i class="fas fa-utensils"></i> 今日饮食记录</h3>
+                    <div class="meal-tabs">
+                        <button class="meal-tab active" data-meal="breakfast">早餐</button>
+                        <button class="meal-tab" data-meal="lunch">午餐</button>
+                        <button class="meal-tab" data-meal="dinner">晚餐</button>
+                        <button class="meal-tab" data-meal="snack">加餐</button>
+                    </div>
+                    <div class="meal-input">
+                        <textarea id="mealContent" placeholder="请输入今日饮食内容，如：米饭、青菜、鸡蛋、牛奶..."></textarea>
+                        <button class="btn btn-primary" id="analyzeMealBtn">
+                            <i class="fas fa-brain"></i>
+                            <span>AI 分析</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="nutrition-result" data-aos="fade-left">
+                    <h3><i class="fas fa-chart-bar"></i> 营养分析结果</h3>
+                    <div class="nutrition-chart">
+                        <canvas id="nutritionChart"></canvas>
+                    </div>
+                    <div class="nutrition-advice" id="nutritionAdvice">
+                        <div class="advice-item">
+                            <i class="fas fa-info-circle"></i>
+                            <span>请先记录饮食内容</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TCM Culture Section -->
+    <section class="section" id="tcm-culture">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">TCM CULTURE</span>
+                <h2 class="section-title">中医药文化馆</h2>
+                <p class="section-desc">传承千年智慧，守护民族健康</p>
+            </div>
+
+            <div class="culture-tabs" data-aos="fade-up">
+                <button class="culture-tab active" data-tab="herbs">常见中药</button>
+                <button class="culture-tab" data-tab="classics">中医典籍</button>
+                <button class="culture-tab" data-tab="wisdom">养生智慧</button>
+            </div>
+
+            <!-- Herbs Tab -->
+            <div class="culture-content active" id="herbsTab">
+                <div class="herbs-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="herb-card" data-aos="zoom-in">
+                        <div class="herb-image">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="herb-name">人参</h4>
+                        <p class="herb-effect">大补元气，复脉固脱</p>
+                        <div class="herb-tags">
+                            <span class="tag">补气</span>
+                            <span class="tag">益血</span>
+                        </div>
+                    </div>
+                    <div class="herb-card" data-aos="zoom-in">
+                        <div class="herb-image">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4 class="herb-name">枸杞</h4>
+                        <p class="herb-effect">滋补肝肾，益精明目</p>
+                        <div class="herb-tags">
+                            <span class="tag">滋阴</span>
+                            <span class="tag">明目</span>
+                        </div>
+                    </div>
+                    <div class="herb-card" data-aos="zoom-in">
+                        <div class="herb-image">
+                            <i class="fas fa-mortar-pestle"></i>
+                        </div>
+                        <h4 class="herb-name">黄芪</h4>
+                        <p class="herb-effect">补气固表，利尿托毒</p>
+                        <div class="herb-tags">
+                            <span class="tag">补气</span>
+                            <span class="tag">固表</span>
+                        </div>
+                    </div>
+                    <div class="herb-card" data-aos="zoom-in">
+                        <div class="herb-image">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h4 class="herb-name">菊花</h4>
+                        <p class="herb-effect">散风清热，平肝明目</p>
+                        <div class="herb-tags">
+                            <span class="tag">清热</span>
+                            <span class="tag">明目</span>
+                        </div>
+                    </div>
+                    <div class="herb-card" data-aos="zoom-in">
+                        <div class="herb-image">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <h4 class="herb-name">当归</h4>
+                        <p class="herb-effect">补血活血，调经止痛</p>
+                        <div class="herb-tags">
+                            <span class="tag">补血</span>
+                            <span class="tag">活血</span>
+                        </div>
+                    </div>
+                    <div class="herb-card" data-aos="zoom-in">
+                        <div class="herb-image">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4 class="herb-name">甘草</h4>
+                        <p class="herb-effect">补脾益气，清热解毒</p>
+                        <div class="herb-tags">
+                            <span class="tag">补气</span>
+                            <span class="tag">调和</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classics Tab -->
+            <div class="culture-content" id="classicsTab">
+                <div class="classics-grid">
+                    <div class="classic-card">
+                        <div class="classic-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>《黄帝内经》</h4>
+                        <p>中国最早的医学典籍，奠定了人体生理、病理、诊断以及治疗的认识基础。</p>
+                        <div class="classic-meta">
+                            <span><i class="fas fa-calendar"></i> 战国时期</span>
+                            <span><i class="fas fa-file-alt"></i> 162篇</span>
+                        </div>
+                    </div>
+                    <div class="classic-card">
+                        <div class="classic-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>《伤寒杂病论》</h4>
+                        <p>东汉张仲景著，确立了辨证论治的原则，是中医临床的基本原则。</p>
+                        <div class="classic-meta">
+                            <span><i class="fas fa-calendar"></i> 东汉</span>
+                            <span><i class="fas fa-user"></i> 张仲景</span>
+                        </div>
+                    </div>
+                    <div class="classic-card">
+                        <div class="classic-icon">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <h4>《本草纲目》</h4>
+                        <p>明代李时珍著，收录药物1892种，附方11096则，是中药学集大成之作。</p>
+                        <div class="classic-meta">
+                            <span><i class="fas fa-calendar"></i> 明代</span>
+                            <span><i class="fas fa-user"></i> 李时珍</span>
+                        </div>
+                    </div>
+                    <div class="classic-card">
+                        <div class="classic-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h4>《神农本草经》</h4>
+                        <p>中国现存最早的中药学专著，载药365种，分上中下三品。</p>
+                        <div class="classic-meta">
+                            <span><i class="fas fa-calendar"></i> 汉代</span>
+                            <span><i class="fas fa-file-alt"></i> 3卷</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wisdom Tab -->
+            <div class="culture-content" id="wisdomTab">
+                <div class="wisdom-grid">
+                    <div class="wisdom-card">
+                        <h4><i class="fas fa-sun"></i> 春生</h4>
+                        <p>春三月，此谓发陈。天地俱生，万物以荣。</p>
+                        <div class="wisdom-tip">
+                            <strong>养生要点：</strong>夜卧早起，广步于庭，被发缓形
+                        </div>
+                    </div>
+                    <div class="wisdom-card">
+                        <h4><i class="fas fa-cloud-sun"></i> 夏长</h4>
+                        <p>夏三月，此谓蕃秀。天地气交，万物华实。</p>
+                        <div class="wisdom-tip">
+                            <strong>养生要点：</strong>夜卧早起，无厌于日，使志无怒
+                        </div>
+                    </div>
+                    <div class="wisdom-card">
+                        <h4><i class="fas fa-leaf"></i> 秋收</h4>
+                        <p>秋三月，此谓容平。天气以急，地气以明。</p>
+                        <div class="wisdom-tip">
+                            <strong>养生要点：</strong>早卧早起，与鸡俱兴，使志安宁
+                        </div>
+                    </div>
+                    <div class="wisdom-card">
+                        <h4><i class="fas fa-snowflake"></i> 冬藏</h4>
+                        <p>冬三月，此谓闭藏。水冰地坼，无扰乎阳。</p>
+                        <div class="wisdom-tip">
+                            <strong>养生要点：</strong>早卧晚起，必待日光，去寒就温
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acupoint Section -->
+    <section class="section section-dark" id="acupoint">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AI ACUPOINT</span>
+                <h2 class="section-title">AI 穴位互动学习</h2>
+                <p class="section-desc">点击人体模型，探索穴位奥秘与养生知识</p>
+            </div>
+
+            <div class="acupoint-container" data-aos="fade-up">
+                <div class="body-model">
+                    <svg viewBox="0 0 400 800" class="human-body">
+                        <defs>
+                            <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="rgba(212,175,55,0.08)"/>
+                                <stop offset="100%" stop-color="rgba(212,175,55,0.02)"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Realistic human silhouette -->
+                        <path d="M 200 30 C 175 30, 155 50, 155 75 C 155 95, 165 110, 175 118 L 175 128 C 160 132, 140 140, 125 155 L 95 215 L 78 285 L 73 320 C 71 330, 77 335, 83 332 L 93 325 L 103 290 L 113 260 L 123 230 C 128 220, 133 210, 140 200 L 145 185 C 150 175, 158 165, 165 158 L 170 153 L 170 200 L 160 310 L 150 410 L 142 510 L 138 570 L 133 615 C 132 630, 137 635, 148 635 L 158 635 C 165 635, 168 630, 166 620 L 170 575 L 178 495 L 183 435 L 190 415 L 195 410 L 200 408 L 205 410 L 210 415 L 217 435 L 222 495 L 230 575 L 234 620 C 232 630, 235 635, 242 635 L 252 635 C 263 635, 268 630, 267 615 L 262 570 L 258 510 L 250 410 L 240 310 L 230 200 L 230 153 L 235 158 C 242 165, 250 175, 255 185 L 260 200 C 267 210, 272 220, 277 230 L 287 260 L 297 290 L 307 325 L 317 332 C 323 335, 329 330, 327 320 L 322 285 L 305 215 L 275 155 C 260 140, 240 132, 225 128 L 225 118 C 235 110, 245 95, 245 75 C 245 50, 225 30, 200 30 Z" fill="url(#bodyGrad)" stroke="var(--gold)" stroke-width="2"/>
+
+                        <!-- Facial features -->
+                        <ellipse cx="185" cy="75" rx="5" ry="4" fill="var(--gold)" opacity="0.4"/>
+                        <ellipse cx="215" cy="75" rx="5" ry="4" fill="var(--gold)" opacity="0.4"/>
+                        <path d="M 195 95 Q 200 99 205 95" fill="none" stroke="var(--gold)" stroke-width="1.5" opacity="0.4"/>
+
+                        <!-- Body detail lines (meridians) -->
+                        <path d="M 200 155 L 200 405" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
+                        <path d="M 165 230 Q 200 240 235 230" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.15" stroke-dasharray="5,5"/>
+                        <path d="M 155 310 Q 200 320 245 310" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.15" stroke-dasharray="5,5"/>
+
+                        <!-- Acupoints with glow effect -->
+                        <circle class="acupoint" cx="200" cy="40" r="10" data-name="百会穴" data-desc="位于头顶正中，主治头痛、眩晕、失眠" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="175" cy="78" r="10" data-name="太阳穴" data-desc="位于眉梢与外眼角之间，主治头痛、目赤肿痛" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="225" cy="78" r="10" data-name="太阳穴" data-desc="位于眉梢与外眼角之间，主治头痛、目赤肿痛" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="200" cy="140" r="10" data-name="天突穴" data-desc="位于颈部前正中，主治咳嗽、气喘、咽喉肿痛" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="200" cy="225" r="10" data-name="膻中穴" data-desc="位于胸部正中，主治胸闷、气喘、心悸" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="200" cy="295" r="10" data-name="中脘穴" data-desc="位于腹部正中，主治胃痛、腹胀、呕吐" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="200" cy="345" r="10" data-name="气海穴" data-desc="位于腹部，主治腹痛、遗尿、虚脱" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="110" cy="255" r="10" data-name="曲池穴" data-desc="位于肘横纹外侧端，主治发热、高血压、手臂肿痛" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="290" cy="255" r="10" data-name="曲池穴" data-desc="位于肘横纹外侧端，主治发热、高血压、手臂肿痛" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="83" cy="325" r="10" data-name="合谷穴" data-desc="位于手背虎口处，主治头痛、目赤肿痛、鼻衄" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="317" cy="325" r="10" data-name="合谷穴" data-desc="位于手背虎口处，主治头痛、目赤肿痛、鼻衄" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="178" cy="450" r="10" data-name="足三里" data-desc="位于小腿外侧，主治胃痛、呕吐、腹胀、消化不良" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="222" cy="450" r="10" data-name="足三里" data-desc="位于小腿外侧，主治胃痛、呕吐、腹胀、消化不良" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="160" cy="555" r="10" data-name="三阴交" data-desc="位于小腿内侧，主治月经不调、失眠、消化不良" filter="url(#glow)"/>
+                        <circle class="acupoint" cx="240" cy="555" r="10" data-name="三阴交" data-desc="位于小腿内侧，主治月经不调、失眠、消化不良" filter="url(#glow)"/>
+                    </svg>
+                </div>
+                
+                <div class="acupoint-info" id="acupointInfo">
+                    <div class="info-placeholder">
+                        <i class="fas fa-hand-pointer"></i>
+                        <p>点击穴位查看详情</p>
+                    </div>
+                    <div class="info-content" id="infoContent" style="display: none;">
+                        <h3 id="acupointName">穴位名称</h3>
+                        <p id="acupointDesc">穴位描述</p>
+                        <div class="info-tips">
+                            <h4><i class="fas fa-lightbulb"></i> 养生提示</h4>
+                            <p id="acupointTip">经常按摩此穴位可以疏通经络，调和气血。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 舌诊 Section -->
+    <section class="section" id="tongue-diagnosis">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">AI TONGUE DIAGNOSIS</span>
+                <h2 class="section-title">AI 中医舌诊</h2>
+                <p class="section-desc">拍照上传舌象，AI 智能分析体质与健康状态</p>
+            </div>
+
+            <div class="tongue-container" data-aos="fade-up">
+                <!-- 图片上传 + 特征描述 -->
+                <div class="tongue-form" data-aos="fade-right">
+                    <h3><i class="fas fa-camera-retro"></i> 舌象采集</h3>
+                    <p class="form-hint">上传舌象照片，AI 自动识别颜色特征</p>
+
+                    <!-- 图片上传区 -->
+                    <div class="tongue-upload-area" id="tongueUploadArea">
+                        <div class="upload-placeholder" id="uploadPlaceholder">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>点击或拖拽上传舌象照片</p>
+                            <p class="sub-text">支持 JPG、PNG 格式</p>
+                        </div>
+                        <div class="upload-preview" id="uploadPreview" style="display:none;">
+                            <img id="tonguePreviewImg" src="" alt="舌象预览">
+                            <button class="btn-remove" id="removeImageBtn"><i class="fas fa-times"></i></button>
+                        </div>
+                        <input type="file" id="tongueFileInput" accept="image/*" style="display:none;">
+                    </div>
+
+                    <!-- AI 自动识别的颜色特征 -->
+                    <div class="tongue-auto-features" id="tongueAutoFeatures" style="display:none;">
+                        <h4><i class="fas fa-magic"></i> AI 自动识别</h4>
+                        <div class="auto-feature-tags" id="autoFeatureTags">
+                            <!-- 动态生成 -->
+                        </div>
+                    </div>
+
+                    <!-- 手动选择特征 -->
+                    <div class="tongue-question-group">
+                        <div class="tongue-question">
+                            <h4><i class="fas fa-shapes"></i> 舌形（舌头的形状）</h4>
+                            <div class="tongue-options" id="tongueShape">
+                                <label class="tongue-option"><input type="radio" name="tongueShape" value="正常舌形" checked><span>正常（大小适中）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueShape" value="胖大舌"><span>胖大舌（舌体胖大）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueShape" value="齿痕舌"><span>齿痕舌（边缘有齿印）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueShape" value="瘦薄舌"><span>瘦薄舌（舌体瘦小）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueShape" value="裂纹舌"><span>裂纹舌（表面有裂纹）</span></label>
+                            </div>
+                        </div>
+
+                        <div class="tongue-question">
+                            <h4><i class="fas fa-layer-group"></i> 舌苔（舌面上的苔）</h4>
+                            <div class="tongue-options" id="tongueCoating">
+                                <label class="tongue-option"><input type="radio" name="tongueCoating" value="薄白苔" checked><span>薄白苔（正常）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueCoating" value="白厚苔"><span>白厚苔（白色厚腻）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueCoating" value="黄苔"><span>黄苔（黄色）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueCoating" value="黄腻苔"><span>黄腻苔（黄而厚腻）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueCoating" value="少苔或无苔"><span>少苔或无苔</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueCoating" value="灰黑苔"><span>灰黑苔</span></label>
+                            </div>
+                        </div>
+
+                        <div class="tongue-question">
+                            <h4><i class="fas fa-tint"></i> 舌面润燥</h4>
+                            <div class="tongue-options" id="tongueMoisture">
+                                <label class="tongue-option"><input type="radio" name="tongueMoisture" value="润" checked><span>润泽（正常）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueMoisture" value="滑"><span>滑（水滑多津）</span></label>
+                                <label class="tongue-option"><input type="radio" name="tongueMoisture" value="燥"><span>燥（干燥少津）</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tongue-extra">
+                        <h4><i class="fas fa-comment-medical"></i> 补充描述（可选）</h4>
+                        <textarea id="tongueExtraInput" placeholder="如：舌头边缘有齿印、舌苔发黄发厚、舌头感觉干涩等..."></textarea>
+                    </div>
+
+                    <button class="btn btn-gold btn-block" id="analyzeTongueBtn">
+                        <i class="fas fa-brain"></i>
+                        <span>AI 智能分析</span>
+                    </button>
+                </div>
+
+                <!-- 分析结果 -->
+                <div class="tongue-result" data-aos="fade-left">
+                    <div class="result-placeholder" id="tongueResultPlaceholder">
+                        <i class="fas fa-yin-yang"></i>
+                        <p>上传舌象照片后，AI 将自动分析</p>
+                        <p class="sub-text">分析内容包括：舌色、舌形、舌苔、体质判断、养生建议</p>
+                    </div>
+
+                    <div class="result-content" id="tongueResultContent" style="display:none;">
+                        <div class="result-image-wrap" id="resultImageWrap" style="display:none;">
+                            <img id="tongueResultImage" src="" alt="舌象照片">
+                        </div>
+                        <div class="result-analysis" id="tongueAnalysisResult">
+                            <!-- AI 分析结果将显示在这里 -->
+                        </div>
+                    </div>
+
+                    <div class="result-loading" id="tongueLoading" style="display:none;">
+                        <div class="loading-spinner"></div>
+                        <p>AI 正在分析舌象，请稍候...</p>
+                        <p class="sub-text">正在识别舌色、舌形、舌苔特征</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 健康趋势 Section -->
+    <section class="section section-dark" id="health-trend">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">HEALTH TREND</span>
+                <h2 class="section-title">健康趋势分析</h2>
+                <p class="section-desc">追踪健康数据变化，掌握身体状况趋势</p>
+            </div>
+
+            <div class="trend-container" data-aos="fade-up">
+                <!-- 时间范围选择 -->
+                <div class="trend-controls">
+                    <button class="trend-btn active" data-range="7">近 7 天</button>
+                    <button class="trend-btn" data-range="14">近 14 天</button>
+                    <button class="trend-btn" data-range="30">近 30 天</button>
+                </div>
+
+                <!-- 趋势图表 -->
+                <div class="trend-charts">
+                    <div class="trend-chart-card" data-aos="fade-up">
+                        <h3><i class="fas fa-chart-line"></i> 健康评分趋势</h3>
+                        <div class="chart-wrap">
+                            <canvas id="scoreTrendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="trend-chart-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3><i class="fas fa-moon"></i> 睡眠趋势</h3>
+                        <div class="chart-wrap">
+                            <canvas id="sleepTrendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="trend-chart-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3><i class="fas fa-running"></i> 运动趋势</h3>
+                        <div class="chart-wrap">
+                            <canvas id="exerciseTrendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="trend-chart-card" data-aos="fade-up" data-aos-delay="300">
+                        <h3><i class="fas fa-tint"></i> 饮水趋势</h3>
+                        <div class="chart-wrap">
+                            <canvas id="waterTrendChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 趋势统计 -->
+                <div class="trend-stats" data-aos="fade-up">
+                    <div class="trend-stat-card">
+                        <div class="stat-icon" style="background:rgba(212,175,55,0.15);color:#d4af37;">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="trendAvgScore">--</div>
+                            <div class="stat-label">平均健康评分</div>
+                        </div>
+                    </div>
+                    <div class="trend-stat-card">
+                        <div class="stat-icon" style="background:rgba(56,217,230,0.15);color:#38d9e6;">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="trendAvgSleep">--</div>
+                            <div class="stat-label">平均睡眠(小时)</div>
+                        </div>
+                    </div>
+                    <div class="trend-stat-card">
+                        <div class="stat-icon" style="background:rgba(74,222,128,0.15);color:#4ade80;">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="trendAvgExercise">--</div>
+                            <div class="stat-label">平均运动(分钟)</div>
+                        </div>
+                    </div>
+                    <div class="trend-stat-card">
+                        <div class="stat-icon" style="background:rgba(96,165,250,0.15);color:#60a5fa;">
+                            <i class="fas fa-glass-water"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="trendAvgWater">--</div>
+                            <div class="stat-label">平均饮水(杯)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 无数据提示 -->
+                <div class="trend-empty" id="trendEmpty" style="display:none;">
+                    <i class="fas fa-chart-bar"></i>
+                    <p>暂无健康记录数据</p>
+                    <p class="sub-text">请在「今日健康检测」中保存记录，即可在此查看趋势</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Section -->
+    <section class="section" id="growth">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">GROWTH SYSTEM</span>
+                <h2 class="section-title">健康成长系统</h2>
+                <p class="section-desc">每日打卡，见证成长足迹</p>
+            </div>
+
+            <div class="growth-container" data-aos="fade-up">
+                <div class="checkin-card">
+                    <div class="checkin-header">
+                        <h3><i class="fas fa-calendar-check"></i> 今日打卡</h3>
+                        <div class="checkin-streak">
+                            <span class="streak-label">连续打卡</span>
+                            <span class="streak-value" id="checkinStreak">0</span>
+                            <span class="streak-unit">天</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkin-items">
+                        <div class="checkin-item">
+                            <label>
+                                <input type="checkbox" id="checkExercise">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span>完成运动</span>
+                        </div>
+                        <div class="checkin-item">
+                            <label>
+                                <input type="checkbox" id="checkWater">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span>饮水达标</span>
+                        </div>
+                        <div class="checkin-item">
+                            <label>
+                                <input type="checkbox" id="checkSleep">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span>早睡早起</span>
+                        </div>
+                        <div class="checkin-item">
+                            <label>
+                                <input type="checkbox" id="checkLabor">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span>劳动实践</span>
+                        </div>
+                        <div class="checkin-item">
+                            <label>
+                                <input type="checkbox" id="checkDiet">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span>均衡饮食</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-gold btn-block" id="submitCheckin">
+                        <i class="fas fa-check-circle"></i>
+                        <span>提交打卡</span>
+                    </button>
+                </div>
+
+                <div class="growth-tree">
+                    <h3><i class="fas fa-tree"></i> 成长树</h3>
+                    <div class="tree-container">
+                        <div class="tree-visual">
+                            <div class="tree-trunk"></div>
+                            <div class="tree-leaves" id="treeLeaves">
+                                <!-- Leaves will be generated by JS -->
+                            </div>
+                        </div>
+                        <div class="tree-stats">
+                            <div class="tree-stat">
+                                <span class="stat-value" id="totalCheckins">0</span>
+                                <span class="stat-label">累计打卡</span>
+                            </div>
+                            <div class="tree-stat">
+                                <span class="stat-value" id="treeLevel">1</span>
+                                <span class="stat-label">成长等级</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section class="section section-dark" id="report">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">HEALTH REPORT</span>
+                <h2 class="section-title">AI 健康报告</h2>
+                <p class="section-desc">可视化数据分析，全面掌握健康状况</p>
+            </div>
+
+            <div class="report-container" data-aos="fade-up">
+                <!-- Generate Button -->
+                <div class="report-action" data-aos="fade-up">
+                    <button class="btn btn-gold btn-lg" id="generateReportBtn">
+                        <i class="fas fa-brain"></i>
+                        <span>生成 AI 健康报告</span>
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div class="report-loading" data-aos="fade-up" id="reportLoading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>AI 正在分析您的健康数据，请稍候...</p>
+                </div>
+
+                <!-- AI Report Result -->
+                <div class="report-ai-result" data-aos="fade-up" id="reportAiResult" style="display: none;">
+                    <div class="result-header-bar">
+                        <h3><i class="fas fa-robot"></i> AI 健康分析报告</h3>
+                        <span class="result-time" id="resultTime"></span>
+                    </div>
+                    <div class="result-body" id="resultBody">
+                        <!-- AI generated content will be inserted here -->
+                    </div>
+                    <div class="result-actions">
+                        <button class="btn btn-outline" id="regenerateReport">
+                            <i class="fas fa-redo"></i>
+                            <span>重新生成</span>
+                        </button>
+                        <button class="btn btn-primary" id="exportReport">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>导出报告</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Error State -->
+                <div class="report-error" data-aos="fade-up" id="reportError" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p id="errorMsg">生成报告时出错，请检查 API Key 是否正确</p>
+                    <button class="btn btn-outline" id="retryReport">
+                        <i class="fas fa-redo"></i>
+                        <span>重试</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">ABOUT PROJECT</span>
+                <h2 class="section-title">关于项目</h2>
+                <p class="section-desc">融合传统与现代，科技赋能健康教育</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-intro">
+                    <div class="intro-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>赛事理念</h3>
+                    <p>本项目响应全国中小学劳动教育与智慧健康创新赛事号召，以"智养未来"为主题，致力于打造一个融合 AI 智能分析、健康管理、中医文化传承和劳动教育实践的综合性校园健康平台。</p>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>AI 智能分析</h4>
+                        <p>运用人工智能技术，实现体质辨识、营养分析、健康评估等智能化功能</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-yin-yang"></i>
+                        </div>
+                        <h4>中医文化传承</h4>
+                        <p>将中医药传统文化融入现代健康教育，增强文化自信和民族自豪感</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>劳动教育实践</h4>
+                        <p>通过劳动记录、积分激励等方式，培养学生热爱劳动的良好品质</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>数据可视化</h4>
+                        <p>运用图表直观展示健康数据，帮助学生了解自身健康状况</p>
+                    </div>
+                </div>
+
+                <div class="about-values">
+                    <h3>文化价值</h3>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <i class="fas fa-heart"></i>
+                            <h5>健康第一</h5>
+                            <p>引导学生成为自身健康的第一责任人</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-book"></i>
+                            <h5>文化自信</h5>
+                            <p>传承中医药文化，增强民族文化认同</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h5>创新思维</h5>
+                            <p>培养科学精神和创新实践能力</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-users"></i>
+                            <h5>全面发展</h5>
+                            <p>促进德智体美劳全面发展</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <span>智养未来 Smart Health</span>
+                </div>
+                <p class="footer-text">全国中小学劳动教育与智慧健康创新赛事作品</p>
+                <p class="footer-copyright">© 韩韩真耐斯 智慧未来.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

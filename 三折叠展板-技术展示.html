@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智养未来 - 技术展示三折叠展板</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A3 landscape;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            background: #0a0e17;
+            color: #edf5ff;
+            overflow-x: hidden;
+        }
+
+        .exhibition-board {
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            background: linear-gradient(135deg, #0a0e17 0%, #120c06 100%);
+        }
+
+        /* 面板通用样式 */
+        .panel {
+            padding: 40px 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+        }
+
+        .panel-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .panel-title i {
+            font-size: 38px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .section-title i {
+            font-size: 24px;
+        }
+
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c5d5e8;
+        }
+
+        /* 左面板 - 项目概览 */
+        .left-panel {
+            background: linear-gradient(180deg, rgba(10, 14, 23, 0.95) 0%, rgba(18, 12, 6, 0.95) 100%);
+        }
+
+        .project-header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid rgba(212, 175, 55, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .project-name {
+            font-size: 56px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .project-subtitle {
+            font-size: 22px;
+            color: #91a4bb;
+            letter-spacing: 2px;
+        }
+
+        .project-desc {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #c5d5e8;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            font-size: 18px;
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .feature-list li i {
+            color: #d4af37;
+            font-size: 20px;
+            width: 24px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            font-size: 22px;
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p {
+            font-size: 17px;
+            color: #c5d5e8;
+            line-height: 1.7;
+        }
+
+        /* 中面板 - 技术栈 */
+        .center-panel {
+            background: linear-gradient(180deg, rgba(18, 12, 6, 0.95) 0%, rgba(10, 14, 23, 0.95) 100%);
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tech-category {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .tech-category h4 {
+            font-size: 20px;
+            color: #d4af37;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tech-category h4 i {
+            font-size: 18px;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            font-size: 15px;
+            color: #d4af37;
+            font-weight: 500;
+        }
+
+        .architecture-diagram {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .architecture-diagram h4 {
+            font-size: 22px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .arch-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .arch-layer {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 10px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .arch-layer-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #d4af37;
+            flex-shrink: 0;
+        }
+
+        .arch-layer-content h5 {
+            font-size: 18px;
+            color: #edf5ff;
+            margin-bottom: 5px;
+        }
+
+        .arch-layer-content p {
+            font-size: 14px;
+            color: #91a4bb;
+        }
+
+        .arch-arrow {
+            text-align: center;
+            font-size: 24px;
+            color: #d4af37;
+            opacity: 0.6;
+        }
+
+        .hardware-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .spec-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .spec-card i {
+            font-size: 28px;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .spec-card h5 {
+            font-size: 16px;
+            color: #edf5ff;
+            margin-bottom: 5px;
+        }
+
+        .spec-card p {
+            font-size: 13px;
+            color: #91a4bb;
+        }
+
+        /* 右面板 - 开发过程 */
+        .right-panel {
+            background: linear-gradient(180deg, rgba(10, 14, 23, 0.95) 0%, rgba(18, 12, 6, 0.95) 100%);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #d4af37, rgba(212, 175, 55, 0.3));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 22px;
+            width: 14px;
+            height: 14px;
+            background: #d4af37;
+            border-radius: 50%;
+            border: 3px solid #0a0e17;
+        }
+
+        .timeline-date {
+            font-size: 15px;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            color: #edf5ff;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 15px;
+            color: #91a4bb;
+            line-height: 1.6;
+        }
+
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .innovation-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .innovation-number {
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #0a0e17;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .innovation-content h5 {
+            font-size: 17px;
+            color: #d4af37;
+            margin-bottom: 6px;
+        }
+
+        .innovation-content p {
+            font-size: 14px;
+            color: #c5d5e8;
+            line-height: 1.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #91a4bb;
+        }
+
+        /* 打印优化 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .exhibition-board {
+                background: white;
+            }
+
+            .panel {
+                background: white !important;
+                color: #333;
+            }
+
+            .panel-title,
+            .section-title,
+            .project-name {
+                color: #d4af37 !important;
+            }
+
+            .tech-tag,
+            .highlight-box {
+                background: rgba(212, 175, 55, 0.1) !important;
+            }
+        }
+
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .exhibition-board {
+                grid-template-columns: 1fr;
+            }
+
+            .panel {
+                padding: 30px 25px;
+            }
+
+            .project-name {
+                font-size: 42px;
+            }
+
+            .panel-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="exhibition-board">
+        <!-- 左面板：项目概览 -->
+        <div class="panel left-panel">
+            <div class="project-header">
+                <div class="project-name">智养未来</div>
+                <div class="project-subtitle">Smart Health · 校园智慧健康平台</div>
+            </div>
+
+            <div class="project-desc">
+                <strong>项目简介：</strong>智养未来是一款面向校园场景的智慧健康管理平台，融合人工智能、中医文化、物联网技术，为学生提供全方位的健康监测、AI 问诊、体质分析、养生指导服务。
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-bullseye"></i>
+                    核心功能
+                </div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-robot"></i> AI 智能问诊（DeepSeek 大模型）</li>
+                    <li><i class="fas fa-heartbeat"></i> 实时心率血氧监测（ESP32 + MAX30102）</li>
+                    <li><i class="fas fa-yin-yang"></i> 中医体质辨识（九种体质算法）</li>
+                    <li><i class="fas fa-camera"></i> AI 舌诊分析（图像识别 + 中医辨证）</li>
+                    <li><i class="fas fa-chart-line"></i> 健康趋势追踪（数据可视化）</li>
+                    <li><i class="fas fa-spa"></i> 穴位学习系统（3D 人体模型）</li>
+                    <li><i class="fas fa-apple-alt"></i> 营养膳食助手</li>
+                    <li><i class="fas fa-running"></i> 劳动健康教育</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> 项目亮点</h4>
+                <p>
+                    • 软硬件结合：ESP32 物联网设备 + Web 平台<br>
+                    • AI 赋能：DeepSeek 大模型驱动智能问诊<br>
+                    • 中医特色：融合传统中医文化与现代科技<br>
+                    • 数据驱动：健康趋势分析 + 个性化建议
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-users"></i>
+                    应用场景
+                </div>
+                <div class="section-content">
+                    • 校园健康自助终端<br>
+                    • 学生日常健康管理<br>
+                    • 中医文化科普教育<br>
+                    • 劳动健康课程辅助
+                </div>
+            </div>
+        </div>
+
+        <!-- 中面板：技术栈 -->
+        <div class="panel center-panel">
+            <div class="panel-title">
+                <i class="fas fa-code"></i>
+                技术架构
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-layer-group"></i>
+                    技术栈
+                </div>
+                <div class="tech-stack-grid">
+                    <div class="tech-category">
+                        <h4><i class="fas fa-palette"></i> 前端</h4>
+                        <div class="tech-items">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">AOS</span>
+                            <span class="tech-tag">Font Awesome</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4><i class="fas fa-server"></i> 后端</h4>
+                        <div class="tech-items">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">DeepSeek API</span>
+                            <span class="tech-tag">RESTful</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4><i class="fas fa-microchip"></i> 硬件</h4>
+                        <div class="tech-items">
+                            <span class="tech-tag">ESP32-C3</span>
+                            <span class="tech-tag">MAX30102</span>
+                            <span class="tech-tag">MPU6050</span>
+                            <span class="tech-tag">I2C</span>
+                            <span class="tech-tag">WiFi</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4><i class="fas fa-database"></i> 数据</h4>
+                        <div class="tech-items">
+                            <span class="tech-tag">LocalStorage</span>
+                            <span class="tech-tag">JSON</span>
+                            <span class="tech-tag">Canvas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-diagram">
+                <h4><i class="fas fa-sitemap"></i> 系统架构</h4>
+                <div class="arch-flow">
+                    <div class="arch-layer">
+                        <div class="arch-layer-icon"><i class="fas fa-user"></i></div>
+                        <div class="arch-layer-content">
+                            <h5>用户层</h5>
+                            <p>学生 / 教师 / 管理员</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="arch-layer-content">
+                            <h5>展示层</h5>
+                            <p>Web 前端（HTML/CSS/JS）</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="arch-layer-content">
+                            <h5>服务层</h5>
+                            <p>Flask API + DeepSeek AI</p>
+                        </div>
+                    </div>
+                    <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="arch-layer">
+                        <div class="arch-layer-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="arch-layer-content">
+                            <h5>设备层</h5>
+                            <p>ESP32-C3 + 传感器</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-microchip"></i>
+                    硬件规格
+                </div>
+                <div class="hardware-specs">
+                    <div class="spec-card">
+                        <i class="fas fa-microchip"></i>
+                        <h5>ESP32-C3</h5>
+                        <p>RISC-V 32 位<br>WiFi + BLE 5.0</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h5>MAX30102</h5>
+                        <p>心率血氧传感器<br>I2C 接口</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h5>MPU6050</h5>
+                        <p>六轴运动传感器<br>加速度 + 陀螺仪</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-broadcast-tower"></i>
+                        <h5>通信协议</h5>
+                        <p>WiFi HTTP<br>I2C 总线</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">功能模块</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">体质识别准确率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&lt;2s</div>
+                    <div class="stat-label">AI 响应时间</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">FPS 流畅运行</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右面板：开发过程 -->
+        <div class="panel right-panel">
+            <div class="panel-title">
+                <i class="fas fa-tasks"></i>
+                开发历程
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-clock"></i>
+                    项目时间线
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">第一阶段 · 需求分析</div>
+                        <div class="timeline-title">调研与规划</div>
+                        <div class="timeline-desc">
+                            • 调研校园健康需求<br>
+                            • 分析中医体质辨识算法<br>
+                            • 确定技术选型方案
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">第二阶段 · 原型设计</div>
+                        <div class="timeline-title">UI/UX 设计</div>
+                        <div class="timeline-desc">
+                            • 设计黑金主题视觉风格<br>
+                            • 完成 10 大功能模块原型<br>
+                            • 优化交互体验与动画效果
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">第三阶段 · 前端开发</div>
+                        <div class="timeline-title">核心功能实现</div>
+                        <div class="timeline-desc">
+                            • 完成 HTML/CSS/JS 开发<br>
+                            • 集成 Chart.js 数据可视化<br>
+                            • 实现 AOS 滚动动画
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">第四阶段 · AI 集成</div>
+                        <div class="timeline-title">DeepSeek 接入</div>
+                        <div class="timeline-desc">
+                            • 对接 DeepSeek API<br>
+                            • 实现 AI 问诊功能<br>
+                            • 开发 AI 舌诊模块
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">第五阶段 · 硬件开发</div>
+                        <div class="timeline-title">ESP32 物联网</div>
+                        <div class="timeline-desc">
+                            • ESP32-C3 程序开发<br>
+                            • MAX30102 传感器集成<br>
+                            • WiFi 数据传输实现
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">第六阶段 · 测试优化</div>
+                        <div class="timeline-title">性能调优</div>
+                        <div class="timeline-desc">
+                            • 优化页面加载速度<br>
+                            • 修复跨域问题（CORS）<br>
+                            • 完善医学评估算法
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <i class="fas fa-star"></i>
+                    创新亮点
+                </div>
+                <div class="innovation-grid">
+                    <div class="innovation-card">
+                        <div class="innovation-number">1</div>
+                        <div class="innovation-content">
+                            <h5>AI + 中医融合</h5>
+                            <p>将 DeepSeek 大模型与中医舌诊、体质辨识相结合，实现智能化中医健康评估</p>
+                        </div>
+                    </div>
+                    <div class="innovation-card">
+                        <div class="innovation-number">2</div>
+                        <div class="innovation-content">
+                            <h5>物联网健康监测</h5>
+                            <p>ESP32 + MAX30102 实现实时心率血氧采集，数据自动同步至云端</p>
+                        </div>
+                    </div>
+                    <div class="innovation-card">
+                        <div class="innovation-number">3</div>
+                        <div class="innovation-content">
+                            <h5>医学标准算法</h5>
+                            <p>基于 WHO/AHA 心率标准、中华医学会血氧标准，提供专业健康评估</p>
+                        </div>
+                    </div>
+                    <div class="innovation-card">
+                        <div class="innovation-number">4</div>
+                        <div class="innovation-content">
+                            <h5>数据可视化</h5>
+                            <p>Chart.js 实现健康趋势追踪，支持 7/14/30 天多维度分析</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 25px;">
+                <h4><i class="fas fa-trophy"></i> 项目成果</h4>
+                <p>
+                    ✅ 完成 10 大功能模块开发<br>
+                    ✅ 实现软硬件数据互通<br>
+                    ✅ AI 问诊响应时间 &lt;2 秒<br>
+                    ✅ 医学评估算法符合权威标准<br>
+                    ✅ 支持校园场景落地部署
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 打印功能
+        function printBoard() {
+            window.print();
+        }
+
+        // 添加打印按钮（仅在屏幕显示）
+        if (!window.matchMedia('print').matches) {
+            const printBtn = document.createElement('button');
+            printBtn.innerHTML = '<i class="fas fa-print"></i> 打印展板';
+            printBtn.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 12px 24px;
+                background: #d4af37;
+                color: #0a0e17;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                z-index: 1000;
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            `;
+            printBtn.onclick = printBoard;
+            document.body.appendChild(printBtn);
+        }
+    </script>
+</body>
+</html>
